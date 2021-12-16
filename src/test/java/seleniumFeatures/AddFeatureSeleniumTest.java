@@ -62,6 +62,7 @@ public class AddFeatureSeleniumTest {
         WebElement newFeatureBTN = driver.findElement(By.xpath("//*[contains(text(),'Add a new feature')]"));
         newFeatureBTN.click();
 
+
         WebElement featureName = driver.findElement((By.xpath("//div[@id='inputFeatureName']//input[@id='featureName']")));
         featureName.sendKeys("New Selenium Feature");
 
@@ -72,9 +73,9 @@ public class AddFeatureSeleniumTest {
         featurePriority.selectByVisibleText("Medium");
 
         WebElement dateBox = driver.findElement(By.xpath("//div[@id='inputFeatureDeadline']//input[@id='deadline']"));
-        dateBox.sendKeys("12252022");
+        dateBox.sendKeys("11262023");
         dateBox.sendKeys(Keys.ARROW_RIGHT);
-        dateBox.sendKeys("0245PM");
+        dateBox.sendKeys("0345PM");
 
         WebElement submitNewFeature = driver.findElement(By.xpath("//*[contains(text(),'Create Feature')]"));
         submitNewFeature.click();
@@ -85,6 +86,9 @@ public class AddFeatureSeleniumTest {
         Thread.sleep(2000);
 
         WebElement success = driver.findElement(By.xpath("//*[contains(text(),'New Selenium Feature')]"));
+        ((JavascriptExecutor) driver)
+                .executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        Thread.sleep(2000);
 
         String successString = "New Selenium Feature description";
 
