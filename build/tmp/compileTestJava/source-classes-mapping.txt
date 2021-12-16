@@ -1,0 +1,2 @@
+com/example/PairdeskProjectManager_Selenium/FeatureListPageTest.java
+ com.example.PairdeskProjectManager_Selenium.FeatureListPageTest

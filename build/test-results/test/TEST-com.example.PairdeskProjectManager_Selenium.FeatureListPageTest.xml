@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.PairdeskProjectManager_Selenium.FeatureListPageTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-12-16T07:52:34" hostname="PYTHON-A" time="8.542">
+  <properties/>
+  <testcase name="FeatureListPage_Navigation()" classname="com.example.PairdeskProjectManager_Selenium.FeatureListPageTest" time="8.542"/>
+  <system-out><![CDATA[02:52:29.595 [Test worker] DEBUG io.github.bonigarcia.wdm.cache.ResolutionCache - Removing resolution chrome=96 from cache (expired on Thu Dec 16 01:33:44 EST 2021)
+02:52:29.628 [Test worker] DEBUG io.github.bonigarcia.wdm.versions.Shell - Running command on the shell: [wmic.exe, datafile, where, name='C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe', get, Version, /value]
+02:52:30.165 [Test worker] DEBUG io.github.bonigarcia.wdm.versions.Shell - Result: Version=96.0.4664.93
+02:52:30.169 [Test worker] DEBUG io.github.bonigarcia.wdm.cache.ResolutionCache - Resolution chrome96=96.0.4664.45 in cache (valid until 00:33:44 17/12/2021 EST)
+02:52:30.170 [Test worker] INFO io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 96.0.4664.45 (resolved driver for Chrome 96)
+02:52:30.175 [Test worker] DEBUG io.github.bonigarcia.wdm.cache.ResolutionCache - Storing resolution chrome=96 in cache (valid until 03:52:30 16/12/2021 EST)
+02:52:30.214 [Test worker] DEBUG io.github.bonigarcia.wdm.WebDriverManager - Driver chromedriver 96.0.4664.45 found in cache
+02:52:30.219 [Test worker] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\mazig\.cache\selenium\chromedriver\win32\96.0.4664.45\chromedriver.exe
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 96.0.4664.45 (76e4c1bb2ab4671b8beba3444e61c0f17584b2fc-refs/branch-heads/4664@{#947}) on port 8010
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Dec. 16, 2021 2:52:34 A.M. org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>
