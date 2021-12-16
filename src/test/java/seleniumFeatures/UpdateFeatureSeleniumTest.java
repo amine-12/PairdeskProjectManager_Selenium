@@ -20,12 +20,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 @ExtendWith(SeleniumExtension.class)
-public class AddFeatureSeleniumTest {
+public class UpdateFeatureSeleniumTest {
 
     ChromeDriver driver;
     private final String SCREENSHOTS = "./src/test/onDemandFeatureScreenshots/FeatureCreate";
 
-    public AddFeatureSeleniumTest(ChromeDriver driver) {
+    public UpdateFeatureSeleniumTest(ChromeDriver driver) {
         this.driver = driver;
 
         DesiredCapabilities dc = new DesiredCapabilities();
@@ -59,24 +59,24 @@ public class AddFeatureSeleniumTest {
             e.printStackTrace();
         }
 
-        WebElement newFeatureBTN = driver.findElement(By.xpath("//*[contains(text(),'Add a new feature')]"));
-        newFeatureBTN.click();
+        WebElement updateFeatureBTN = driver.findElement(By.xpath("//div[@id='editDeleteButtonsDiv']//button[@id='editButton']"));
+        updateFeatureBTN.click();
 
-        WebElement featureName = driver.findElement((By.xpath("//div[@id='inputFeatureName']//input[@id='featureName']")));
-        featureName.sendKeys("New Selenium Feature");
+        WebElement featureName = driver.findElement((By.xpath("//div[@id='inputUpdateFeatureName']//input[@id='featureName']")));
+        featureName.sendKeys("Updated Selenium Feature");
 
-        WebElement featureDescription = driver.findElement(By.xpath("//div[@id='inputFeatureDescription']//textarea[@id='description']"));
-        featureDescription.sendKeys("New Selenium Feature description");
+        WebElement featureDescription = driver.findElement(By.xpath("//div[@id='inputUpdateFeatureDescription']//textarea[@id='description']"));
+        featureDescription.sendKeys("Updated Selenium Feature description");
 
-        Select featurePriority = new Select(driver.findElement(By.xpath("//div[@id='inputFeaturePriority']//select[@id='priority']")));
-        featurePriority.selectByVisibleText("Medium");
+        Select featurePriority = new Select(driver.findElement(By.xpath("//div[@id='inputUpdateFeaturePriority']//select[@id='priority']")));
+        featurePriority.selectByVisibleText("High");
 
-        WebElement dateBox = driver.findElement(By.xpath("//div[@id='inputFeatureDeadline']//input[@id='deadline']"));
-        dateBox.sendKeys("12252022");
+        WebElement dateBox = driver.findElement(By.xpath("//div[@id='inputUpdateFeatureDeadline']//input[@id='deadline']"));
+        dateBox.sendKeys("11262023");
         dateBox.sendKeys(Keys.ARROW_RIGHT);
-        dateBox.sendKeys("0245PM");
+        dateBox.sendKeys("0345PM");
 
-        WebElement submitNewFeature = driver.findElement(By.xpath("//*[contains(text(),'Create Feature')]"));
+        WebElement submitNewFeature = driver.findElement(By.xpath("//*[contains(text(),'Update Feature')]"));
         submitNewFeature.click();
 
         Thread.sleep(2000);
@@ -84,9 +84,9 @@ public class AddFeatureSeleniumTest {
 
         Thread.sleep(2000);
 
-        WebElement success = driver.findElement(By.xpath("//*[contains(text(),'New Selenium Feature')]"));
+        WebElement success = driver.findElement(By.xpath("//*[contains(text(),'Updated Selenium Feature')]"));
 
-        String successString = "New Selenium Feature description";
+        String successString = "Updated Selenium Feature description";
 
         assertThat(success.getText(), is(successString));
 
