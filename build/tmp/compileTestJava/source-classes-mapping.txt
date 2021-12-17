@@ -1,6 +1,8 @@
 com/example/PairdeskProjectManager_Selenium/FeatureListPageTest.java
  com.example.PairdeskProjectManager_Selenium.FeatureListPageTest
-seleniumFeatures/AddFeatureSeleniumTest.java
- seleniumFeatures.AddFeatureSeleniumTest
 seleniumFeatures/UpdateFeatureSeleniumTest.java
  seleniumFeatures.UpdateFeatureSeleniumTest
+seleniumFeatures/AddFeatureSeleniumTest.java
+ seleniumFeatures.AddFeatureSeleniumTest
+seleniumTask/MarkTaskAsCompleteSeleniumTest.java
+ seleniumFeatures.MarkTaskAsCompleteSeleniumTest
