@@ -75,6 +75,8 @@ public class GetFeatureAndAddTaskTest {
     @Test
     void Get_Feature_Details() throws InterruptedException{
         addFeature();
+        ((JavascriptExecutor) driver)
+                .executeScript("window.scrollTo(0, document.body.scrollHeight)");
         driver.findElement(By.linkText("New Selenium Feature")).click();
         Thread.sleep(2000);
         WebElement success = driver.findElement(By.xpath("//*[contains(text(),'New Selenium Feature')]"));
