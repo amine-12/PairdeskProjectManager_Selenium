@@ -31,7 +31,6 @@ public class FeatureListPageTest {
             action.moveToElement(ele).perform();
             TimeUnit.SECONDS.sleep(2);
             driver.findElement((By.linkText("FEATURES"))).click();
-            TimeUnit.SECONDS.sleep(2);
 
         }catch (InterruptedException e){
             e.printStackTrace();

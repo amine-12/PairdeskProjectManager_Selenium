@@ -47,7 +47,7 @@ public class UpdateFeatureSeleniumTest {
     }
 
     @Test
-    public void test_Add_feature() throws InterruptedException {
+    public void test_Updated_feature() throws InterruptedException {
 
         driver.get("http://localhost:8081/#/features");
         driver.manage().window().maximize();
