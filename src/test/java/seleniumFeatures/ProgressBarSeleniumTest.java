@@ -71,5 +71,31 @@ public class ProgressBarSeleniumTest {
 
 
     }
+    @Test
+    void progressBar_Test() throws InterruptedException {
+
+        WebDriverWait wait = new WebDriverWait(driver,30);
+
+        driver.get("http://localhost:8081");
+        driver.manage().window().maximize();
+
+        driver.findElement(By.xpath("//*[@id=\"usernameLogin\"]")).sendKeys("admin");
+        driver.findElement(By.xpath("//*[@id=\"passwordLogin\"]")).sendKeys("12345678");
+        driver.findElement(By.xpath("//*[@id=\"loginBtn\"]")).click();
+
+        Thread.sleep(3000);
+
+        driver.findElement(By.xpath("//a[@id='featuresNavLink']")).click();
+
+
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//*[@id=\'editDeleteButtonsDiv\']/a")).click();
+
+        driver.findElement(By.xpath("//*[@id=\'app\']/div[2]/div/div/div[2]/div/div[2]"));
+        assertTrue(driver.getPageSource().contains("progress"));
+
+
+
+    }
 
 }
