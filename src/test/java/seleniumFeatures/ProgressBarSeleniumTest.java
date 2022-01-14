@@ -64,7 +64,7 @@ public class ProgressBarSeleniumTest {
         driver.findElement(By.xpath("//a[@id='featuresNavLink']")).click();
 
 
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         driver.findElement(By.xpath("//*[@id=\'editDeleteButtonsDiv\']/a")).click();
         assertTrue(driver.getPageSource().contains("Overall Progress : 0.0 %"));
 
