@@ -48,7 +48,7 @@ public class ProgressBarSeleniumTest {
         FileUtils.copyFile(SrcFile, DestFile);
     }
     @Test
-    void test_Add_feature() throws InterruptedException {
+    void percentageCompleted_test() throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(driver,30);
 
@@ -62,53 +62,14 @@ public class ProgressBarSeleniumTest {
         Thread.sleep(3000);
 
         driver.findElement(By.xpath("//a[@id='featuresNavLink']")).click();
-        Thread.sleep(3000);
 
-        try{
-            Thread.sleep(3000);
-        }
-        catch(InterruptedException e){
-            e.printStackTrace();
-        }
-
-        WebElement newFeatureBTN = driver.findElement(By.xpath("//*[contains(text(),'Add a new feature')]"));
-        newFeatureBTN.click();
-
-        WebElement featureName = driver.findElement((By.xpath("//div[@id='inputFeatureName']//input[@id='featureName']")));
-        featureName.sendKeys("New Selenium Feature");
-
-        WebElement featureDescription = driver.findElement(By.xpath("//div[@id='inputFeatureDescription']//textarea[@id='description']"));
-        featureDescription.sendKeys("New Selenium Feature description");
-
-        Select featurePriority = new Select(driver.findElement(By.xpath("//div[@id='inputFeaturePriority']//select[@id='priority']")));
-        featurePriority.selectByVisibleText("Medium");
-
-        WebElement dateBox = driver.findElement(By.xpath("//div[@id='inputFeatureDeadline']//input[@id='deadline']"));
-        dateBox.sendKeys("11262023");
-        dateBox.sendKeys(Keys.ARROW_RIGHT);
-        dateBox.sendKeys("0345PM");
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='inputFeatureUser']//select[@id='admin']")));
-
-        Select assignedUser = new Select(driver.findElement(By.xpath("//div[@id='inputFeatureUser']//select[@id='admin']")));
-        assignedUser.selectByVisibleText("admin");
-
-        WebElement submitNewFeature = driver.findElement(By.xpath("//*[contains(text(),'Create Feature')]"));
-        submitNewFeature.click();
 
         Thread.sleep(2000);
-        driver.navigate().refresh();
+        driver.findElement(By.xpath("//*[@id=\'editDeleteButtonsDiv\']/a")).click();
+        assertTrue(driver.getPageSource().contains("Overall Progress : 0.0 %"));
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'New Selenium Feature')]")));
 
-        WebElement success = driver.findElement(By.xpath("//*[contains(text(),'New Selenium Feature')]"));
-        ((JavascriptExecutor) driver)
-                .executeScript("window.scrollTo(0, document.body.scrollHeight)");
-        Thread.sleep(2000);
 
-        String successString = "New Selenium Feature description";
-
-        assertThat(success.getText(), is(successString));
     }
 
 }
