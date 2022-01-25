@@ -2,8 +2,6 @@ package seleniumFeatures;
 
 import io.github.bonigarcia.seljup.SeleniumExtension;
 import org.apache.commons.io.FileUtils;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.*;
@@ -11,7 +9,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
@@ -19,7 +16,6 @@ import java.io.File;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(SeleniumExtension.class)
 public class AddDeleteUserSeleniumTest {
@@ -102,7 +98,7 @@ public class AddDeleteUserSeleniumTest {
     void test_delete_user() throws InterruptedException{
         test_Add_User();
 
-        WebElement deleteUserBtn = driver.findElement(By.xpath("//*[@id='deleteUserBtnId']"));
+        WebElement deleteUserBtn = driver.findElement(By.xpath("/html/body/div/div[2]/ul/div[3]/a/li/div[4]/button[2]/img"));//make sure to copy full xpath of an already created added user
         deleteUserBtn.click();
 
         Thread.sleep(2000);
