@@ -18,6 +18,7 @@ import java.io.File;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(SeleniumExtension.class)
 public class AddFeatureSeleniumTest {
@@ -49,8 +50,22 @@ public class AddFeatureSeleniumTest {
     @Test
     public void test_Add_feature() throws InterruptedException {
 
-        driver.get("http://localhost:8081/#/features");
+
+
+        WebDriverWait wait = new WebDriverWait(driver,30);
+
+        driver.get("http://localhost:8081");
         driver.manage().window().maximize();
+
+        driver.findElement(By.xpath("//*[@id=\"usernameLogin\"]")).sendKeys("admin");
+        driver.findElement(By.xpath("//*[@id=\"passwordLogin\"]")).sendKeys("12345678");
+        driver.findElement(By.xpath("//*[@id=\"loginBtn\"]")).click();
+
+        Thread.sleep(3000);
+
+        driver.findElement(By.xpath("//a[@id='featuresNavLink']")).click();
+        Thread.sleep(3000);
+
 
         try{
             Thread.sleep(3000);
@@ -85,14 +100,50 @@ public class AddFeatureSeleniumTest {
 
         Thread.sleep(2000);
 
-        WebElement success = driver.findElement(By.xpath("//*[contains(text(),'New Selenium Feature')]"));
-        ((JavascriptExecutor) driver)
-                .executeScript("window.scrollTo(0, document.body.scrollHeight)");
-        Thread.sleep(2000);
 
-        String successString = "New Selenium Feature description";
+        assertTrue(driver.getPageSource().contains("featureName"));
 
-        assertThat(success.getText(), is(successString));
+
+        driver.quit();
+    }
+
+
+    @Test
+    public void test_Internationalization_Overview() throws InterruptedException {
+
+
+
+        WebDriverWait wait = new WebDriverWait(driver,30);
+
+        driver.get("http://localhost:8081");
+        driver.manage().window().maximize();
+
+        driver.findElement(By.xpath("//*[@id=\"usernameLogin\"]")).sendKeys("admin");
+        driver.findElement(By.xpath("//*[@id=\"passwordLogin\"]")).sendKeys("12345678");
+        driver.findElement(By.xpath("//*[@id=\"loginBtn\"]")).click();
+
+        Thread.sleep(3000);
+
+        driver.findElement(By.xpath("//a[@id='featuresNavLink']")).click();
+        Thread.sleep(3000);
+
+
+        try{
+            Thread.sleep(3000);
+        }
+        catch(InterruptedException e){
+            e.printStackTrace();
+        }
+
+        WebElement newFeatureBTN = driver.findElement(By.xpath("//*[contains(text(),'Add a new feature')]"));
+        newFeatureBTN.click();
+
+        assertTrue(driver.getPageSource().contains("En"));
+        assertTrue(driver.getPageSource().contains("Fr"));
+
+
+
+
 
         driver.quit();
     }
